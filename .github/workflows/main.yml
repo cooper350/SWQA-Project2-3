@@ -25,13 +25,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | cut -f3 -d' ' | cut -f1 -d'.')
+        DRIVER_VERSION=$(curl --location --request GET 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE_'$CHROME_VERSION)
+        wget https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+
     - name: Run Django tests
       run: python manage.py test
 
     - name: Deploy to Heroku (staging)
       if: github.ref == 'refs/heads/main'
       run: |
-        git remote add heroku https://heroku:$HEROKU_API_KEY@github.com/cooper350/SWQA-Project2-3.git
+        git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/SWQA-Project2-3.git
         git push heroku main
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
