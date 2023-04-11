@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "indentation": 2,
+    "color-hex-case": "lower",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage",
+    "selector-attribute-quotes": "always",
+    "at-rule-no-unknown": null
+  }
+}
