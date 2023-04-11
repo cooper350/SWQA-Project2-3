@@ -21,8 +21,8 @@ repos:
     hooks:
     -   id: isort
         name: isort
--   repo: https://github.com/kevinjalbert/pre-commit-stylelint
-    rev: 1.0.0
+-   repo: https://github.com/adrienverge/pre-commit-stylelint
+    rev: v1.0.0
     hooks:
     -   id: stylelint
         name: Stylelint
