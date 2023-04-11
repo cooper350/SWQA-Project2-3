@@ -21,3 +21,17 @@ extend-ignore = E203, W503
 
 [tool.pre-commit]
 exclude = '.ipynb_checkpoints'
+
+[tool.poetry]
+name = "your-project-name"
+version = "0.1.0"
+description = "Your project description"
+authors = ["Your Name <your@email.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pre-commit = "^2.15.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.extras]
