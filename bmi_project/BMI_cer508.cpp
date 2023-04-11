@@ -1,9 +1,17 @@
+// Copyright 2023 by Cooper Riley
+
+
 #include <iostream>
 #include <cmath>
 #include <string>
 #include <cstdlib>
 
-using namespace std;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::string;
+using std::atof;
+using std::pow;
 
 int main(int argc, char* argv[]) {
   if (argc != 4) {
