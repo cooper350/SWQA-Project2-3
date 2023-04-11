@@ -22,7 +22,7 @@ repos:
     -   id: isort
         name: isort
 -   repo: https://github.com/awebdeveloper/pre-commit-stylelint
-    rev: v14.1.0
+    rev: 134afb1b853d7e366f4bf2e7f2a66eb9b7d96fb5
     hooks:
     -   id: stylelint
         name: Stylelint
