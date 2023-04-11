@@ -18,14 +18,10 @@ jobs:
         run: pip install pre-commit
 
       - name: Set up pre-commit
-        run: pre-commit install -c bmi_project/.pre-commit-config.yaml
+        run: pre-commit install --install-hooks
 
       - name: Run pre-commit
         run: pre-commit run --all-files --verbose || ( git status --short ; git diff ; exit 1 )
-
-      - name: Stylelint fix
-        run: |
-          npx stylelint "**/*.css" --fix
 
       - name: Test if stylelint fixed issues
         run: |
@@ -57,3 +53,4 @@ jobs:
       - name: Test if formatting fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
+
