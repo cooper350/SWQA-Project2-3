@@ -1,0 +1,23 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39']
+
+[tool.pylint]
+disable = "C0103"
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = E203, W503
+
+[tool.pre-commit]
+exclude = '.ipynb_checkpoints'
