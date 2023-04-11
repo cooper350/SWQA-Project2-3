@@ -14,8 +14,10 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install Poetry
-        run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python && source $HOME/.poetry/env
+      - name: Install poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+          source $HOME/.poetry/env
 
       - name: Set up Node.js
         uses: actions/setup-node@v2.5.0
@@ -53,5 +55,6 @@ jobs:
       - name: Test if black fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
+
 
 
