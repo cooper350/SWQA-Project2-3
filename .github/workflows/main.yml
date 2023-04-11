@@ -55,6 +55,3 @@ jobs:
       - name: Test if black fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
-
-
-
