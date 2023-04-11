@@ -28,9 +28,26 @@ jobs:
       - name: Set up pre-commit
         run: pre-commit install --install-hooks
 
-      - name: Run pre-commit
-        run: pre-commit run --all-files --verbose || ( git status --short ; git diff ; exit 1 )
+      - name: Format with prettier
+        run: npx prettier "**/*.{js,json,md,css,less,scss,html,yml}" --write
 
-      - name: Test if formatting fixed issues
+      - name: Test if prettier fixed issues
+        run: |
+          git diff --quiet || ( git status --short ; git diff ; exit 1 )
+
+      - name: Format with isort
+        run: isort .
+
+      - name: Test if isort fixed issues
+        run: |
+          git diff --quiet || ( git status --short ; git diff ; exit 1 )
+
+      - name: Lint with flake8
+        run: flake8
+
+      - name: Lint with black
+        run: black --check .
+
+      - name: Test if black fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
