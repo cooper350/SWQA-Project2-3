@@ -22,3 +22,10 @@ repos:
     hooks:
     -   id: isort
         name: isort
+-   repo: https://github.com/stylelint/stylelint
+    rev: 14.1.0
+    hooks:
+    -   id: stylelint
+        name: Stylelint
+        entry: npx stylelint "**/*.css"
+        types: [css]
