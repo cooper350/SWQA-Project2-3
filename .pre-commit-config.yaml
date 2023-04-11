@@ -15,7 +15,6 @@ repos:
     -   id: prettier
         name: Prettier
         entry: prettier --write
-        language_version: node12
         types: [javascript, json, markdown, css, less, scss, html, yaml]
 -   repo: https://github.com/PyCQA/isort
     rev: 5.9.3
