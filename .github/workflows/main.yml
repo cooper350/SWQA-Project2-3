@@ -14,8 +14,16 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.5.0
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          pip install pre-commit
+          pip install isort==5.9.3
+          npm install prettier
 
       - name: Set up pre-commit
         run: pre-commit install --install-hooks
@@ -23,34 +31,6 @@ jobs:
       - name: Run pre-commit
         run: pre-commit run --all-files --verbose || ( git status --short ; git diff ; exit 1 )
 
-      - name: Test if stylelint fixed issues
-        run: |
-          git diff --quiet || ( git status --short ; git diff ; exit 1 )
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2.5.0
-        with:
-          node-version: '14'
-
-      - name: Install prettier
-        run: npm install prettier
-
-      - name: Format with prettier
-        run: npx prettier "**/*.{js,json,md,css,less,scss,html,yml}" --write
-
-      - name: Install isort
-        run: pip install isort==5.9.3
-
-      - name: Format with isort
-        run: isort .
-
-      - name: Lint with flake8
-        run: flake8
-
-      - name: Lint with black
-        run: black --check .
-
       - name: Test if formatting fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
-
