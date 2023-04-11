@@ -2,9 +2,7 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "indentation": 2,
-    "color-hex-case": "lower",
     "color-function-notation": "modern",
-    "alpha-value-notation": "percentage",
-    "selector-attribute-quotes": "double"
+    "alpha-value-notation": "percentage"
   }
 }
