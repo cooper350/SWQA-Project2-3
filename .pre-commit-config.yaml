@@ -21,9 +21,10 @@ repos:
     hooks:
     -   id: isort
         name: isort
--   repo: https://github.com/adrienverge/pre-commit-stylelint
-    rev: v1.0.0
+-   repo: https://github.com/stylelint/stylelint
+    rev: 14.2.0
     hooks:
     -   id: stylelint
         name: Stylelint
+        entry: npx stylelint
         files: \.css$
