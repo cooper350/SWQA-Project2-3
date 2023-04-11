@@ -21,10 +21,11 @@ repos:
     hooks:
     -   id: isort
         name: isort
--   repo: https://github.com/stylelint/stylelint
-    rev: 14.2.0
+-   repo: local
     hooks:
     -   id: stylelint
         name: Stylelint
         entry: npx stylelint
-        files: \.css$
+        language: node
+        types: [css]
+        additional_dependencies: ['stylelint@14.2.0']
