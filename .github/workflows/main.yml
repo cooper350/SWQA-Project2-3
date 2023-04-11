@@ -19,15 +19,17 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           source $HOME/.poetry/env
 
+      - name: Install dependencies and create lockfile
+        run: |
+          poetry install
+
       - name: Set up Node.js
         uses: actions/setup-node@v2.5.0
         with:
           node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          poetry install
-          npm install prettier
+      - name: Install remaining dependencies
+        run: npm install prettier
 
       - name: Set up pre-commit
         run: pre-commit install --install-hooks
@@ -55,3 +57,4 @@ jobs:
       - name: Test if black fixed issues
         run: |
           git diff --quiet || ( git status --short ; git diff ; exit 1 )
+
