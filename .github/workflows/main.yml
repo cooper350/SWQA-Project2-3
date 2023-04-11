@@ -18,7 +18,7 @@ jobs:
         run: pip install pre-commit
 
       - name: Set up pre-commit
-        run: pre-commit install
+        run: pre-commit install -c bmi_project/.pre-commit-config.yaml
 
       - name: Run pre-commit
         run: pre-commit run --all-files --verbose || ( git status --short ; git diff ; exit 1 )
